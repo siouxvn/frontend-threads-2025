@@ -1,20 +1,35 @@
 {
   "name": "frontend-threads-2025",
   "version": "0.0.0",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
   "scripts": {
-    "start": "docusaurus start",
     "build": "docusaurus build",
     "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
+    "format": "prettier \"**/*.{js,jsx,ts,tsx,md,mdx}\" --write --ignore-path .gitignore",
+    "format:check": "prettier \"**/*.{js,jsx,ts,tsx,md,mdx}\" --check --ignore-path .gitignore",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
-    "format": "prettier \"**/*.{js,jsx,ts,tsx,md,mdx}\" --write --ignore-path .gitignore",
-    "format:check": "prettier \"**/*.{js,jsx,ts,tsx,md,mdx}\" --check --ignore-path .gitignore"
+    "serve": "docusaurus serve",
+    "start": "docusaurus start",
+    "typecheck": "tsc",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "write-translations": "docusaurus write-translations"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "overrides": {
+    "sirv": "3.0.2"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -40,18 +55,6 @@
     "prettier": "^3.7.4",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.49.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
   },
   "engines": {
     "node": ">=20 <25",
