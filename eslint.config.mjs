@@ -1,11 +1,12 @@
-const js = require('@eslint/js');
-const eslintConfigPrettier = require('eslint-config-prettier');
-const reactPlugin = require('eslint-plugin-react');
-const reactHooksPlugin = require('eslint-plugin-react-hooks');
-const simpleImportSortPlugin = require('eslint-plugin-simple-import-sort');
-const tseslint = require('typescript-eslint');
+import { defineConfig } from 'eslint/config';
+import js from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
+import tseslint from 'typescript-eslint';
 
-module.exports = tseslint.config(
+export default defineConfig(
   {
     ignores: ['node_modules/**', 'build/**', '.docusaurus/**'],
   },
@@ -40,20 +41,6 @@ module.exports = tseslint.config(
       'react/prop-types': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
-    },
-  },
-  {
-    files: ['eslint.config.js'],
-    languageOptions: {
-      sourceType: 'commonjs',
-      globals: {
-        module: 'readonly',
-        require: 'readonly',
-      },
-    },
-    rules: {
-      '@typescript-eslint/no-require-imports': 'off',
-      'no-undef': 'off',
     },
   },
   eslintConfigPrettier,
