@@ -1,0 +1,4 @@
+.dumi/
+dist/
+docs/.dumi/
+*.d.ts
