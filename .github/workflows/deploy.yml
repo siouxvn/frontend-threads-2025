@@ -20,6 +20,8 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    outputs:
+      should_deploy: ${{ steps.set-deploy.outputs.should_deploy }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,6 +45,12 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Mark deployable
+        id: set-deploy
+        if: ${{ github.event_name == 'push' && contains(fromJson(env.DEPLOY_BRANCHES), github.ref_name) }}
+        run: echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+        shell: bash
+
       - name: Setup Pages
         if: ${{ github.event_name == 'push' && contains(fromJson(env.DEPLOY_BRANCHES), github.ref_name) }}
         uses: actions/configure-pages@v5
@@ -55,7 +63,7 @@ jobs:
 
   deploy:
     needs: ci
-    if: ${{ github.event_name == 'push' && contains(fromJson(vars.DEPLOY_BRANCHES), github.ref_name) }}
+    if: ${{ needs.ci.outputs.should_deploy == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
