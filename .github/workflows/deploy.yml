@@ -2,13 +2,13 @@ name: CI / CD
 
 on:
   push:
-    branches: [main, chore/init-docusaurus]
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
 
 env:
-  DEPLOY_BRANCHES: '["main","chore/init-docusaurus"]'
+  DEPLOY_BRANCHES: '["main"]'
 
 permissions:
   contents: read
