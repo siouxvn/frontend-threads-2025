@@ -7,7 +7,7 @@ Live code blocks let readers experiment without leaving the page. Add `live` aft
 
 React, `useState`, and `useEffect` are available globally inside these playgrounds.
 
-```tsx live
+```tsx live noInline
 type CounterProps = {
   label?: string;
 };
@@ -38,7 +38,7 @@ function Counter({ label = 'Live counter' }: CounterProps) {
   );
 }
 
-export default function Playground() {
+function Playground() {
   const [label, setLabel] = useState('Live counter');
 
   return (
@@ -59,6 +59,8 @@ export default function Playground() {
     </div>
   );
 }
+ 
+render(<Playground />);
 ```
 
 Static assets can be referenced with absolute paths from the `/static` folder:
