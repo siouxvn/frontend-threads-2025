@@ -1,6 +1,6 @@
 {
   "name": "ft2025",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "A collection of frontend learnings",
   "homepage": "https://kieukhuongthinh.github.io/frontend-threads-2025",
   "bugs": {
@@ -17,20 +17,25 @@
       "import": "./dist/index.js",
       "require": "./dist/index.js"
     },
-    "./ui/components": {
-      "types": "./dist/ui/components/index.d.ts",
-      "import": "./dist/ui/components/index.js",
-      "require": "./dist/ui/components/index.js"
-    },
     "./app/auth": {
       "types": "./dist/app/auth/index.d.ts",
       "import": "./dist/app/auth/index.js",
       "require": "./dist/app/auth/index.js"
     },
+    "./infrastructure/dynamicZoom": {
+      "types": "./dist/infrastructure/dynamicZoom/index.d.ts",
+      "import": "./dist/infrastructure/dynamicZoom/index.js",
+      "require": "./dist/infrastructure/dynamicZoom/index.js"
+    },
     "./mocks/api-mocks": {
       "types": "./dist/mocks/api-mocks.d.ts",
       "import": "./dist/mocks/api-mocks.js",
       "require": "./dist/mocks/api-mocks.js"
+    },
+    "./ui/components": {
+      "types": "./dist/ui/components/index.d.ts",
+      "import": "./dist/ui/components/index.js",
+      "require": "./dist/ui/components/index.js"
     },
     "./*": "./*"
   },
@@ -39,14 +44,17 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "ui/components": [
-        "dist/ui/components/index.d.ts"
-      ],
       "app/auth": [
         "dist/app/auth/index.d.ts"
       ],
+      "infrastructure/dynamicZoom": [
+        "dist/infrastructure/dynamicZoom/index.d.ts"
+      ],
       "mocks/api-mocks": [
         "dist/mocks/api-mocks.d.ts"
+      ],
+      "ui/components": [
+        "dist/ui/components/index.d.ts"
       ],
       "*": [
         "dist/*"
