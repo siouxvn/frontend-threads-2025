@@ -4,7 +4,7 @@ import { authApi } from '@/infrastructure/net';
 import {
   generateAccessToken,
   generateRefreshToken,
-} from '@/infrastructure/net/mockJWT';
+} from '@/infrastructure/net/mock-jwt';
 
 import { USER_TOKEN_ENDPOINTS } from '../../user-token/endpoints';
 import { LoginRequest, LoginResponse } from '../../user-token/login';

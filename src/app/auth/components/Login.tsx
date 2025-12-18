@@ -2,10 +2,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, message } from 'antd';
 import React, { useState } from 'react';
 
-import { authApi } from '@/infrastructure/net';
-
-import { USER_TOKEN_ENDPOINTS } from '../apis/user-token/endpoints';
-import { LoginRequest, LoginResponse } from '../apis/user-token/login';
+import { LoginRequest, LoginResponse, userLogin } from '../apis';
 
 export const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -14,11 +11,8 @@ export const Login = () => {
   const handleLogin = async (values: LoginRequest) => {
     setLoading(true);
     try {
-      const response = await authApi.post<LoginResponse>(
-        USER_TOKEN_ENDPOINTS.login,
-        values,
-      );
-      setUserData(response.data);
+      const response = await userLogin(values);
+      setUserData(response);
       message.success('Login successful!');
     } catch (error: any) {
       message.error(error?.message || 'Login failed!');
