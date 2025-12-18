@@ -1,0 +1,124 @@
+{
+  "name": "ft2025",
+  "version": "1.0.0-beta.4",
+  "description": "A collection of frontend learnings",
+  "homepage": "https://kieukhuongthinh.github.io/frontend-threads-2025",
+  "bugs": {
+    "url": "https://github.com/kieukhuongthinh/frontend-threads-2025/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kieukhuongthinh/frontend-threads-2025.git"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./app/auth": {
+      "types": "./dist/app/auth/index.d.ts",
+      "import": "./dist/app/auth/index.js",
+      "require": "./dist/app/auth/index.js"
+    },
+    "./infrastructure/dynamicZoom": {
+      "types": "./dist/infrastructure/dynamicZoom/index.d.ts",
+      "import": "./dist/infrastructure/dynamicZoom/index.js",
+      "require": "./dist/infrastructure/dynamicZoom/index.js"
+    },
+    "./mocks/api-mocks": {
+      "types": "./dist/mocks/api-mocks.d.ts",
+      "import": "./dist/mocks/api-mocks.js",
+      "require": "./dist/mocks/api-mocks.js"
+    },
+    "./ui/components": {
+      "types": "./dist/ui/components/index.d.ts",
+      "import": "./dist/ui/components/index.js",
+      "require": "./dist/ui/components/index.js"
+    },
+    "./*": "./*"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "app/auth": [
+        "dist/app/auth/index.d.ts"
+      ],
+      "infrastructure/dynamicZoom": [
+        "dist/infrastructure/dynamicZoom/index.d.ts"
+      ],
+      "mocks/api-mocks": [
+        "dist/mocks/api-mocks.d.ts"
+      ],
+      "ui/components": [
+        "dist/ui/components/index.d.ts"
+      ],
+      "*": [
+        "dist/*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:watch": "father dev",
+    "bump:beta": "npm version prerelease --preid beta",
+    "dev": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:preview": "dumi preview",
+    "doctor": "father doctor",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "dumi setup",
+    "prepublishOnly": "father doctor && npm run build",
+    "publish:beta": "npm publish --tag beta",
+    "start": "npm run dev",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "antd": "^6.1.1",
+    "axios": "^1.13.2",
+    "clsx": "^2.1.1",
+    "jose": "^6.1.3",
+    "msw": "^2.12.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "@umijs/lint": "^4.0.0",
+    "dumi": "^2.4.13",
+    "eslint": "^8.57.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "father": "^4.1.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-packagejson": "^2.2.18"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "engines": {
+    "node": ">=20 <25",
+    "npm": ">=9"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "kieukhuongthinh@gmail.com"
+  ],
+  "msw": {
+    "workerDirectory": [
+      "docs\\public"
+    ]
+  }
+}
