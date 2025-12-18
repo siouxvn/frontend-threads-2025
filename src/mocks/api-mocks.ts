@@ -18,8 +18,9 @@ export const setupApiMocks = async () => {
 
   const { setupWorker } = await import('msw/browser');
   const { authHandlers } = await import('../app/auth/apis/mocks');
+  const { screenshotHandlers } = await import('../app/screenshot/apis/mocks');
 
-  const worker = setupWorker(...authHandlers);
+  const worker = setupWorker(...authHandlers, ...screenshotHandlers);
 
   const serviceWorkerUrl = handleDumiBasePath();
 

@@ -45,7 +45,7 @@ Then try the snippet below:
 
 ```jsx
 import React from 'react';
-import { setupDynamicZoom } from 'ft2025/infrastructure/dynamicZoom';
+import { setupDynamicZoom } from 'ft2025/infrastructure/dynamic-zoom';
 
 export default () => {
   // setupDynamicZoom();

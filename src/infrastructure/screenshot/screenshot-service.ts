@@ -1,6 +1,6 @@
 import html2canvas, { type Options as H2COptions } from 'html2canvas';
 
-import { getCurrentZoomRatio } from '../dynamicZoom';
+import { getCurrentZoomRatio } from '../dynamic-zoom';
 
 export interface IScreenshotService {
   /**
@@ -11,6 +11,9 @@ export interface IScreenshotService {
     element: HTMLElement,
     opts?: Partial<ScreenshotOptions>,
   ): Promise<HTMLCanvasElement>;
+
+  /** Convert a canvas to a Blob and prepare for upload */
+  convertToBlob(canvas: HTMLCanvasElement): Promise<Blob>;
 }
 
 export interface ScreenshotOptions {
@@ -268,6 +271,21 @@ class ScreenshotService implements IScreenshotService {
         });
       }
     }
+  }
+
+  async convertToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+    const blob = await new Promise<Blob>((resolve, reject) => {
+      canvas.toBlob(
+        (b) =>
+          b
+            ? resolve(b)
+            : reject(new Error('Failed to create blob from canvas')),
+        'image/png',
+        1.0,
+      );
+    });
+
+    return blob;
   }
 }
 

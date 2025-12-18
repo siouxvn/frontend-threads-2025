@@ -22,10 +22,20 @@
       "import": "./dist/app/auth/index.js",
       "require": "./dist/app/auth/index.js"
     },
-    "./infrastructure/dynamicZoom": {
-      "types": "./dist/infrastructure/dynamicZoom/index.d.ts",
-      "import": "./dist/infrastructure/dynamicZoom/index.js",
-      "require": "./dist/infrastructure/dynamicZoom/index.js"
+    "./app/screenshot": {
+      "types": "./dist/app/screenshot/index.d.ts",
+      "import": "./dist/app/screenshot/index.js",
+      "require": "./dist/app/screenshot/index.js"
+    },
+    "./infrastructure/dynamic-zoom": {
+      "types": "./dist/infrastructure/dynamic-zoom/index.d.ts",
+      "import": "./dist/infrastructure/dynamic-zoom/index.js",
+      "require": "./dist/infrastructure/dynamic-zoom/index.js"
+    },
+    "./infrastructure/screenshot": {
+      "types": "./dist/infrastructure/screenshot/index.d.ts",
+      "import": "./dist/infrastructure/screenshot/index.js",
+      "require": "./dist/infrastructure/screenshot/index.js"
     },
     "./mocks/api-mocks": {
       "types": "./dist/mocks/api-mocks.d.ts",
@@ -47,8 +57,14 @@
       "app/auth": [
         "dist/app/auth/index.d.ts"
       ],
-      "infrastructure/dynamicZoom": [
-        "dist/infrastructure/dynamicZoom/index.d.ts"
+      "app/screenshot": [
+        "dist/app/screenshot/index.d.ts"
+      ],
+      "infrastructure/dynamic-zoom": [
+        "dist/infrastructure/dynamic-zoom/index.d.ts"
+      ],
+      "infrastructure/screenshot": [
+        "dist/infrastructure/screenshot/index.d.ts"
       ],
       "mocks/api-mocks": [
         "dist/mocks/api-mocks.d.ts"
@@ -89,9 +105,11 @@
     "clsx": "^2.1.1",
     "html2canvas": "^1.4.1",
     "jose": "^6.1.3",
+    "luxon": "^3.7.2",
     "msw": "^2.12.4"
   },
   "devDependencies": {
+    "@types/luxon": "^3.7.1",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
     "@umijs/lint": "^4.0.0",
