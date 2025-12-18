@@ -1,1 +1,1 @@
-export { setupDynamicZoom } from './dynamicZoom';
+export { getCurrentZoomRatio, setupDynamicZoom } from './dynamicZoom';
