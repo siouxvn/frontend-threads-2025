@@ -97,7 +97,12 @@ export default () => {
           <Switch checked={useClone} onChange={setUseClone} />
         </Flex>
       </Flex>
-      <div ref={contentRef}>
+      <div
+        ref={contentRef}
+        style={{
+          maxWidth: 500,
+        }}
+      >
         <Spin spinning={!ready || loading}>
           <video
             src={video4k}
@@ -115,9 +120,9 @@ export default () => {
             onPlaying={() => setLoading(false)}
             onError={() => setLoading(false)}
             style={{
-              pointerEvents: 'none',
-              width: 500,
+              width: '100%',
               height: 'auto',
+              pointerEvents: 'none',
               objectFit: 'contain',
             }}
           />
